@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "957350140491",
+    "firebase_url": "https://esp32buttontest-default-rtdb.firebaseio.com",
+    "project_id": "esp32buttontest",
+    "storage_bucket": "esp32buttontest.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:957350140491:android:a0cf48c2bd82a635664bce",
+        "android_client_info": {
+          "package_name": "com.example.proyectomoviles"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "957350140491-me9a3mt1n8ab0nlbam0hjtc13judq0rn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDm1RjChGfn-IecgATSjcctnJlgl4F3jOs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "957350140491-me9a3mt1n8ab0nlbam0hjtc13judq0rn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
