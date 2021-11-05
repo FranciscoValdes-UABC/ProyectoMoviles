@@ -4,64 +4,27 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.appcompat.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.SearchView;
+import android.widget.Spinner;
 
 import java.util.ArrayList;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link ListFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class ListFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
     public static ArrayList<Lectures> lecturesList = new ArrayList<Lectures>();
+    private SearchView searchView;
     private ListView listView;
-
-    public ListFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment ListFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static ListFragment newInstance(String param1, String param2) {
-        ListFragment fragment = new ListFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
+    private Spinner spinner;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
@@ -70,10 +33,12 @@ public class ListFragment extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_list, container, false);
         setupData();
-
         setupList(v);
-
         setupOnClickListener();
+
+        setupSpinner(v);
+        setupSearch(v);
+
         return v;
     }
 
@@ -99,5 +64,56 @@ public class ListFragment extends Fragment {
                 startActivity(showDetail);
             }
         });
+    }
+
+    private void setupSearch(View v){
+        searchView = (SearchView) v.findViewById(R.id.searchView);
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                ArrayList<Lectures> filteredLectures = new ArrayList<Lectures>();
+                for(Lectures lecture: lecturesList){
+                    switch(spinner.getSelectedItem().toString()){
+                        case "ID":
+                                if(String.valueOf(lecture.getUserId()).contains(newText)){
+                                    filteredLectures.add(lecture);
+                                }
+                            break;
+                        case "Name":
+                                if(lecture.getName().toLowerCase().contains(newText.toLowerCase())){
+                                    filteredLectures.add(lecture);
+                                }
+                            break;
+                        case "NFC":
+                            if(lecture.getNFC().toLowerCase().contains(newText.toLowerCase())){
+                                filteredLectures.add(lecture);
+                            }
+                            break;
+                        case "Date":
+                            if(lecture.getDate().toLowerCase().contains(newText.toLowerCase())){
+                                filteredLectures.add(lecture);
+                            }
+                            break;
+                    }
+                }
+
+                LecturesAdapter adapter = new LecturesAdapter(getContext(), 0, filteredLectures);
+                listView.setAdapter(adapter);
+                return false;
+            }
+        });
+    }
+
+    private void setupSpinner(View v){
+        spinner = (Spinner) v.findViewById(R.id.spinner);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getContext(),
+                R.array.options_array, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
     }
 }

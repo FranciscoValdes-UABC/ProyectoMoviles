@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="options_array">
+        <item>ID</item>
+        <item>Name</item>
+        <item>NFC</item>
+        <item>Date</item>
+    </string-array>
+</resources>
