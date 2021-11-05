@@ -78,7 +78,7 @@ public class ListFragment extends Fragment {
     }
 
     private void setupData(){
-        Lectures lecture = new Lectures(0, 1, "A379B218", "Wed Oct 20 20:03:41 2021", "Fr", R.drawable.io);
+        Lectures lecture = new Lectures(0, 1, "A379B218", "Wed Oct 20 20:03:41 2021", "Francisco Daniel Valdes Escarrega", R.drawable.io);
         lecturesList.add(lecture);
     }
 
