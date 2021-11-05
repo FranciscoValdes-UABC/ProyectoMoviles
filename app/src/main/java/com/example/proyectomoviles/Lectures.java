@@ -2,17 +2,27 @@ package com.example.proyectomoviles;
 
 public class Lectures {
     private int id;
+    private int userId;
     private String NFC;
     private String date;
     private String name;
     private int image;
 
-    public Lectures(int id, String NFC, String date, String name, int image) {
+    public Lectures(int id, int userId, String NFC, String date, String name, int image) {
         this.id = id;
+        this.userId = userId;
         this.NFC = NFC;
         this.date = date;
         this.name = name;
         this.image = image;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
     public int getId() {

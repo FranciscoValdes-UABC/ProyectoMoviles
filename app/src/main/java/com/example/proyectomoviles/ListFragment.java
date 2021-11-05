@@ -1,5 +1,6 @@
 package com.example.proyectomoviles;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -76,7 +78,7 @@ public class ListFragment extends Fragment {
     }
 
     private void setupData(){
-        Lectures lecture = new Lectures(1, "A379B218", "Wed Oct 20 20:03:41 2021", "Fr", R.drawable.io);
+        Lectures lecture = new Lectures(0, 1, "A379B218", "Wed Oct 20 20:03:41 2021", "Fr", R.drawable.io);
         lecturesList.add(lecture);
     }
 
@@ -88,6 +90,14 @@ public class ListFragment extends Fragment {
     }
 
     private void setupOnClickListener(){
-
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Lectures selectedLecture = (Lectures) (listView.getItemAtPosition(position));
+                Intent showDetail = new Intent(getContext(), LectureDetailActivity.class);
+                showDetail.putExtra("id", selectedLecture.getId());
+                startActivity(showDetail);
+            }
+        });
     }
 }
