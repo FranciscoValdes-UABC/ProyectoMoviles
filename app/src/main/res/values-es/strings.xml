@@ -4,4 +4,6 @@
     <string name="hello_blank_fragment">Hola fragment vacío</string>
     <string name="UploadTabString">Subir Datos</string>
     <string name="ListTabtString">Lista de Datos</string>
+    <string name="Name">Nombre</string>
+    <string name="Date">Fecha</string>
 </resources>

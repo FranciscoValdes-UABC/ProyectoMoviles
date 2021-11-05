@@ -3,10 +3,14 @@ package com.example.proyectomoviles;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -23,6 +27,9 @@ public class ListFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    public static ArrayList<Lectures> lecturesList = new ArrayList<Lectures>();
+    private ListView listView;
 
     public ListFragment() {
         // Required empty public constructor
@@ -59,6 +66,28 @@ public class ListFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_list, container, false);
+        View v = inflater.inflate(R.layout.fragment_list, container, false);
+        setupData();
+
+        setupList(v);
+
+        setupOnClickListener();
+        return v;
+    }
+
+    private void setupData(){
+        Lectures lecture = new Lectures(1, "A379B218", "Wed Oct 20 20:03:41 2021", "Fr", R.drawable.io);
+        lecturesList.add(lecture);
+    }
+
+    private void setupList(View v){
+        listView = (ListView) v.findViewById(R.id.lecturesListView);
+
+        LecturesAdapter adapter = new LecturesAdapter(getContext(), 0, lecturesList);
+        listView.setAdapter(adapter);
+    }
+
+    private void setupOnClickListener(){
+
     }
 }
