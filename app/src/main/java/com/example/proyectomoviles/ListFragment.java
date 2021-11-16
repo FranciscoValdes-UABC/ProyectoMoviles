@@ -22,6 +22,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
@@ -64,12 +65,31 @@ public class ListFragment extends Fragment {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 //createList((Map<String,Object>) snapshot.getValue());
                 for(DataSnapshot ds : snapshot.getChildren()){
-                    String userId = ds.getKey();
                     String NFC = ds.child("NFC").getValue(String.class);
                     String Date = ds.child("Fecha").getValue(String.class);
-                    lecturesList.add(new Lectures(0, userId, NFC, Date, "Francisco Daniel Valdes Escarrega", R.drawable.io));
+
+                    Query userInfo = usuariosDB.orderByChild("NFC").equalTo(NFC);
+                    userInfo.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            for(DataSnapshot ds2 : snapshot.getChildren()) {
+                                String userId = ds2.getKey();
+                                String Name = ds2.child("Nombre").getValue(String.class);
+                                String Url = ds2.child("URL").getValue(String.class);
+                                lecturesList.add(new Lectures(0, userId, NFC, Date, Name, Url));
+
+                                setupList(v);
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
+
+                    //lecturesList.add(new Lectures(0, userId, NFC, Date, "Francisco Daniel Valdes Escarrega", R.drawable.io));
                 }
-                setupList(v);
             }
 
             @Override

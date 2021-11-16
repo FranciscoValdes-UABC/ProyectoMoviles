@@ -6,9 +6,9 @@ public class Lectures {
     private String NFC;
     private String date;
     private String name;
-    private int image;
+    private String image;
 
-    public Lectures(int id, String userId, String NFC, String date, String name, int image) {
+    public Lectures(int id, String userId, String NFC, String date, String name, String image) {
         this.id = id;
         this.userId = userId;
         this.NFC = NFC;
@@ -57,11 +57,11 @@ public class Lectures {
         this.name = name;
     }
 
-    public int getImage() {
+    public String getImage() {
         return image;
     }
 
-    public void setImage(int image) {
+    public void setImage(String image) {
         this.image = image;
     }
 }
