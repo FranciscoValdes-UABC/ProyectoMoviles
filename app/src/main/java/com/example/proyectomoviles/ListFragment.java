@@ -60,6 +60,8 @@ public class ListFragment extends Fragment {
         DatabaseReference lecturasDB = database.getReference("Lecturas");
         DatabaseReference usuariosDB = database.getReference("Usuarios");
 
+        final int[] count = {0};
+
         lecturasDB.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -76,10 +78,11 @@ public class ListFragment extends Fragment {
                                 String userId = ds2.getKey();
                                 String Name = ds2.child("Nombre").getValue(String.class);
                                 String Url = ds2.child("URL").getValue(String.class);
-                                lecturesList.add(new Lectures(0, userId, NFC, Date, Name, Url));
+                                lecturesList.add(new Lectures(count[0], userId, NFC, Date, Name, Url));
 
-                                setupList(v);
+                                count[0] = count[0] +1;
                             }
+                            setupList(v);
                         }
 
                         @Override
