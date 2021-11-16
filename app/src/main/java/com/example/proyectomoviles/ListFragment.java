@@ -1,9 +1,14 @@
 package com.example.proyectomoviles;
 
+import static android.content.ContentValues.TAG;
+
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +18,14 @@ import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.Spinner;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import java.util.ArrayList;
+import java.util.Map;
 
 public class ListFragment extends Fragment {
 
@@ -32,7 +44,7 @@ public class ListFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_list, container, false);
-        setupData();
+        setupData(v);
         setupList(v);
         setupOnClickListener();
 
@@ -42,9 +54,31 @@ public class ListFragment extends Fragment {
         return v;
     }
 
-    private void setupData(){
-        Lectures lecture = new Lectures(0, 1, "A379B218", "Wed Oct 20 20:03:41 2021", "Francisco Daniel Valdes Escarrega", R.drawable.io);
-        lecturesList.add(lecture);
+    private void setupData(View v){
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference lecturasDB = database.getReference("Lecturas");
+        DatabaseReference usuariosDB = database.getReference("Usuarios");
+
+        lecturasDB.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                //createList((Map<String,Object>) snapshot.getValue());
+                for(DataSnapshot ds : snapshot.getChildren()){
+                    String userId = ds.getKey();
+                    String NFC = ds.child("NFC").getValue(String.class);
+                    String Date = ds.child("Fecha").getValue(String.class);
+                    lecturesList.add(new Lectures(0, userId, NFC, Date, "Francisco Daniel Valdes Escarrega", R.drawable.io));
+                }
+                setupList(v);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+        //lecturesList.add(new Lectures(0, 1, "aaaaa", "Wed Oct 20 20:03:41 2021", "Francisco Daniel Valdes Escarrega", R.drawable.io));
     }
 
     private void setupList(View v){

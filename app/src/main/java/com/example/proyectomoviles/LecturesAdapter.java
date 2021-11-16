@@ -30,7 +30,7 @@ public class LecturesAdapter extends ArrayAdapter<Lectures> {
         TextView nfcTextView = (TextView) convertView.findViewById(R.id.nfcTextView);
         TextView dateTextView = (TextView) convertView.findViewById(R.id.dateTextView);
 
-        idTextView.setText(String.valueOf(lectures.getUserId()));
+        idTextView.setText(lectures.getUserId());
         nameTextView.setText(lectures.getName());
         nfcTextView.setText(lectures.getNFC());
         dateTextView.setText(lectures.getDate());
