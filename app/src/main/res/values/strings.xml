@@ -8,4 +8,5 @@
     <string name="NFC" translatable="false">NFC</string>
     <string name="Date">Date</string>
     <string name="ID" translatable="false">ID</string>
+    <string name="SelectImage">Select Image</string>
 </resources>

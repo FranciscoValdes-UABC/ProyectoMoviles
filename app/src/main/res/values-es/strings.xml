@@ -6,4 +6,5 @@
     <string name="ListTabtString">Lista de Datos</string>
     <string name="Name">Nombre</string>
     <string name="Date">Fecha</string>
+    <string name="SelectImage">Seleccionar Imágen</string>
 </resources>
