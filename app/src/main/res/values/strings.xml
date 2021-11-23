@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ProyectoMoviles</string>
+    <string name="app_name">" Mobiles Project"</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="UploadTabString">Upload Data</string>

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">ProyectoMoviles</string>
+    <string name="app_name">Proyecto Móviles</string>
     <string name="hello_blank_fragment">Hola fragment vacío</string>
     <string name="UploadTabString">Subir Datos</string>
     <string name="ListTabtString">Lista de Datos</string>
     <string name="Name">Nombre</string>
     <string name="Date">Fecha</string>
-    <string name="SelectImage">Seleccionar Imágen</string>
+    <string name="SelectImage">Seleccionar Imagen</string>
 </resources>

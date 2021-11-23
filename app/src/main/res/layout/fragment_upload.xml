@@ -79,9 +79,10 @@
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:layout_width="210dp"
+        android:layout_height="210dp"
         android:layout_marginTop="32dp"
+        android:background="@drawable/image_border"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
