@@ -1,12 +1,13 @@
 <resources>
-    <string name="app_name">" Mobiles Project"</string>
+    <string name="app_name">Mobiles Project</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="UploadTabString">Upload Data</string>
-    <string name="ListTabtString">Data List</string>
+    <string name="UploadTabString">Create User</string>
+    <string name="ListTabtString">"Record of Readings "</string>
     <string name="Name">Name</string>
     <string name="NFC" translatable="false">NFC</string>
     <string name="Date">Date</string>
     <string name="ID" translatable="false">ID</string>
     <string name="SelectImage">Select Image</string>
+    <string name="About">About</string>
 </resources>
