@@ -49,4 +49,10 @@ public class LectureDetailActivity extends AppCompatActivity {
         dateTextView.setText(selectedLecture.getDate());
         Picasso.get().load(selectedLecture.getImage()).into(imageView);
     }
+
+    @Override
+    public void finish() {
+        super.finish();
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+    }
 }

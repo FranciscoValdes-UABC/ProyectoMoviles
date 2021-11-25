@@ -1,14 +1,11 @@
 package com.example.proyectomoviles;
 
-import static android.content.ContentValues.TAG;
-
 import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,7 +23,6 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.Map;
 
 public class ListFragment extends Fragment {
 
@@ -119,6 +115,7 @@ public class ListFragment extends Fragment {
                 Intent showDetail = new Intent(getContext(), LectureDetailActivity.class);
                 showDetail.putExtra("id", selectedLecture.getId());
                 startActivity(showDetail);
+                getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         });
     }
