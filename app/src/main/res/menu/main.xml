@@ -2,9 +2,9 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/action_about"
+        android:icon="@android:drawable/ic_menu_info_details"
         android:orderInCategory="100"
-        android:title="Settings"
-        app:showAsAction="never"
-        />
+        android:title="@string/About"
+        app:showAsAction="ifRoom" />
 </menu>
