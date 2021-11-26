@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Proyecto Móviles</string>
     <string name="hello_blank_fragment">Hola fragment vacío</string>
     <string name="UploadTabString">Crear Usuario</string>
     <string name="ListTabtString">Registro de Lecturas</string>
@@ -8,4 +7,5 @@
     <string name="Date">Fecha</string>
     <string name="SelectImage">Seleccionar Imagen</string>
     <string name="About">Acerca de</string>
+    <string name="Contact">Contacto</string>
 </resources>

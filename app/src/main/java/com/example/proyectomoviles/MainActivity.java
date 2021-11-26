@@ -77,7 +77,6 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.action_about:
-                Log.i(TAG, "aaaaaaa");
                 Intent intent = new Intent(getApplicationContext(), AboutActivity.class);
                 startActivity(intent);
                 break;
