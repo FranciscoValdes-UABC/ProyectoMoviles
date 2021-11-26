@@ -8,4 +8,5 @@
     <string name="SelectImage">Seleccionar Imagen</string>
     <string name="About">Acerca de</string>
     <string name="Contact">Contacto</string>
+    <string name="AboutText">El proposito de esta aplicación es conectar un sistema que realiza lecturas dispositivos que cuenten con una etiqueta NFC y obtener los datos en forma de lista, esto con el fin de llevar un control de las lecturas realizadas. Al igual que agregar nuevos usuarios que cuenten con acceso para utilizar el sistema mencionado.</string>
 </resources>

@@ -11,4 +11,8 @@
     <string name="SelectImage">Select Image</string>
     <string name="About">About</string>
     <string name="Contact">Contact</string>
+    <string name="MyEmail" translatable="false">valdes.francisco@uabc.edu.mx</string>
+    <string name="AboutText">The purpose of this app is to connect a system that reads devices that have a NFC tag
+        and obtain the data in a list, this in order to carry a control of the given readings. As well as add new users that have access to
+    use the mentioned system.</string>
 </resources>

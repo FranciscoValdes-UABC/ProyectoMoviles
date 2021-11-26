@@ -8,20 +8,23 @@
 
     <ImageView
         android:id="@+id/firebaseImageView"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/contentTextView"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appNameTextView"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/firebase_logo" />
 
     <TextView
         android:id="@+id/aboutTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="8dp"
         android:text="@string/About"
         android:textSize="34sp"
         android:textStyle="bold"
@@ -46,26 +49,27 @@
         android:id="@+id/contactTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:text="@string/Contact"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/contentTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/firebaseImageView" />
 
     <TextView
         android:id="@+id/contentTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
         android:gravity="center"
         android:text="@string/AboutText"
-        app:layout_constraintEnd_toEndOf="@+id/firebaseImageView"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/firebaseImageView"
-        app:layout_constraintTop_toBottomOf="@+id/firebaseImageView" />
+        app:layout_constraintBottom_toBottomOf="@+id/firebaseImageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/firebaseImageView"
+        app:layout_constraintTop_toTopOf="@+id/firebaseImageView" />
 
     <TextView
         android:id="@+id/contentTextView2"
@@ -78,18 +82,19 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/imageView4"
         app:layout_constraintTop_toTopOf="@+id/imageView4"
-        app:layout_constraintVertical_bias="0.23000002" />
+        app:layout_constraintVertical_bias="0.25" />
 
     <ImageView
         android:id="@+id/imageView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:foregroundGravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/contentTextView2"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/contactTextView"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@android:drawable/sym_action_email" />
 </androidx.constraintlayout.widget.ConstraintLayout>
