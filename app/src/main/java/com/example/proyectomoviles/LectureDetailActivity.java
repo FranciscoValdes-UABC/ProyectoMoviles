@@ -2,6 +2,7 @@ package com.example.proyectomoviles;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.ActionBar;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -24,6 +25,8 @@ public class LectureDetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lecture_detail);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
 
         getSelectedLecture();
         try {
@@ -71,6 +74,9 @@ public class LectureDetailActivity extends AppCompatActivity {
             case R.id.action_about:
                 Intent intent = new Intent(getApplicationContext(), AboutActivity.class);
                 startActivity(intent);
+                break;
+            case android.R.id.home:
+                finish();
                 break;
         }
         return super.onOptionsItemSelected(item);
