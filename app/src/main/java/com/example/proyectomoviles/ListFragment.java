@@ -139,6 +139,7 @@ public class ListFragment extends Fragment {
                                 }
                             break;
                         case "Name":
+                        case "Nombre":
                                 if(lecture.getName().toLowerCase().contains(newText.toLowerCase())){
                                     filteredLectures.add(lecture);
                                 }
@@ -149,6 +150,7 @@ public class ListFragment extends Fragment {
                             }
                             break;
                         case "Date":
+                        case "Fecha":
                             if(lecture.getDate().toLowerCase().contains(newText.toLowerCase())){
                                 filteredLectures.add(lecture);
                             }
