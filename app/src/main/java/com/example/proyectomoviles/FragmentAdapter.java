@@ -15,11 +15,12 @@ public class FragmentAdapter extends FragmentStateAdapter {
     @Override
     public Fragment createFragment(int position) {
 
+        //Se realiza este switch para que al momento de seleccionar el tab con posición 1 se obtiene el fragmento donde está la lista
         switch (position){
             case 1:
                 return new ListFragment();
         }
-
+        //De cualquier otra forma se regresa el fragmento donde se crea el usuario
         return new UploadFragment();
     }
 

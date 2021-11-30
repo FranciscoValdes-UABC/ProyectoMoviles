@@ -11,7 +11,7 @@
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
-        <!-- Customize your theme here. -->
+        <!-- Se creó un estilo para cambiar el color de la ActionBar a blanco. -->
         <item name="toolbarStyle">@style/MyToolbar</item>
     </style>
 
@@ -19,6 +19,7 @@
         <item name="titleTextColor">@color/white</item>
     </style>
 
+    <!-- Se asigna el drawable que se desea tener de splash screen. -->
     <style name="SplashTheme" parent="Theme.ProyectoMoviles">
         <item name="android:windowBackground">@drawable/splash_screen</item>
     </style>

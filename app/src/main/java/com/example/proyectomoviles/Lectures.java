@@ -1,5 +1,6 @@
 package com.example.proyectomoviles;
 
+//Se crea una clase de java en donde se guardan los valores obtenidos desde Firebase
 public class Lectures {
     private int id;
     private String userId;
